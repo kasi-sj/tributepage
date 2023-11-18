@@ -1,4 +1,9 @@
 'use client';
+import tesla0 from '@/asset/tesla0.jpeg'
+import tesla1 from '@/asset/tesla1.jpg'
+import tesla2 from '@/asset/tesla2.jpg'
+import tesla3 from '@/asset/tesla3.jpg'
+import tesla4 from '@/asset/tesla4.png'
 import Tesla from '@/asset/Tesla.png'
 import one from '@/asset/one.jpeg'
 import two from '@/asset/two.jpeg'
@@ -13,7 +18,7 @@ import ten from '@/asset/ten.jpeg'
 import Image from 'next/image';
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Inter_Tight , ABeeZee , Oooh_Baby , Oxygen} from 'next/font/google';
+import { Inter_Tight , ABeeZee , Oooh_Baby , Raleway , Satisfy} from 'next/font/google';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Link } from 'lucide-react';
 import { useRouter } from 'next/navigation';
@@ -21,7 +26,37 @@ import { useRouter } from 'next/navigation';
 const inter = Inter_Tight({ subsets: ['vietnamese'] })
 const abeezee = ABeeZee({ weight:'400' , subsets: ['latin'] })
 const oooh_baby = Oooh_Baby({weight:'400' , subsets: ['latin'] })
-const oxygen = Oxygen({weight:'400' , subsets: ['latin'] })
+const oxygen = Raleway({weight:'400' , subsets: ['latin'] })
+const satisfy = Satisfy({weight:'400' , subsets: ['latin'] })
+const content = [
+  {
+    image : tesla0,
+    heading : 'Overview',
+    details : 'Inventor Nikola Tesla was born in July of 1856, in what is now Croatia. He came to the United States in 1884 and briefly worked with Thomas Edison before the two parted ways. He sold several patent rights, including those to his alternating-current machinery, to George Westinghouse. His 1891 invention, the "Tesla coil," is still used in radio technology today. Tesla died in New York City on January 7, 1943.'
+  },
+  {
+    image : tesla1,
+    heading : 'Early Years',
+    details : 'Nikola Tesla was born on July 10, 1856, in what is now Smiljan, Croatia. Tesla\'s interest in electrical invention was spurred by his mother, Djuka Mandic, who invented small household appliances in her spare time while her son was growing up. Tesla\'s father, Milutin Tesla, was a priest and a writer, and he pushed for his son to join the priesthood. But Nikola\'s interests lay squarely in the sciences. After studying at the Realschule, Karlstadt (later renamed the Johann-Rudolph-Glauber Realschule Karlstadt); the Polytechnic Institute in Graz, Austria; and the University of Prague during the 1870s, Tesla moved to Budapest, where for a time he worked at the Central Telephone Exchange. It was while in Budapest that the idea for the induction motor first came to Tesla, but after several years of trying to gain interest in his invention, at age 28 Tesla decided to leave Europe for America.'
+  },
+  {
+    image : tesla2,
+    heading : 'Inventive Career',
+    details : `
+    Upon arriving in the U.S., Tesla briefly collaborated with Thomas Edison before their paths diverged due to conflicting personalities. Undeterred by financial challenges, Tesla founded the Tesla Electric Light Company. In 1888, a pivotal partnership formed with George Westinghouse, recognizing the potential of Tesla's alternating-current (AC) system. This collaboration marked a turning point in electrical technology. Tesla's inventions, notably the "Tesla coil," gained global acclaim, establishing him as a pioneering figure. His AC system competed with Edison's direct-current system, leading to the eventual dominance of AC power. This period defined Tesla's legacy in electrical engineering, showcasing his innovative brilliance and global impact.`
+  },
+  {
+    image : tesla3,
+    heading : 'Challenges and Transitions',
+    details : `Having become obsessed with the wireless transmission of energy, around 1900 Nikola set to work on his boldest project yet: to build a global, wireless communication system—to be transmitted through a large electrical tower—for sharing information and providing free electricity throughout the world. With funding from a group of investors that included financial giant J. P. Morgan, in 1901 Tesla began work on the project in earnest, designing and building a lab with a power plant and a massive transmission tower on a site on Long Island, New York, that became known as Wardenclyffe. However, when doubts arose among his investors about the plausibility of Tesla's system and his rival, Guglielmo Marconi—with the financial support of Andrew Carnegie and Thomas Edison—continued to make great advances with his own radio technologies, Tesla had no choice but to abandon the project. The Wardenclyffe staff was laid off in 1906 and by 1915 the site had fallen into foreclosure. Two years later Tesla declared bankruptcy and the tower was dismantled and sold for scrap to help pay the debts he had accrued.`
+  },
+  {
+    image : tesla4,
+    heading : 'Legacy and Later Years',
+    details : `Following a nervous breakdown, Tesla's later years saw eccentric behavior, including a fascination with pigeons and talk of a "death beam." He died on January 7, 1943, in New York City. Despite financial struggles and obscurity, Tesla's legacy endures through his pioneering work in electrical engineering and numerous inventions, shaping the 20th-century power system.`
+  }
+]
+
 const details = [
   {
     image:one,
@@ -111,45 +146,55 @@ export default function Home() {
         </h1>
 
         <motion.div  
-        initial={{ scale: 0 }}
-        animate={{  scale: 1 }}
+        initial={{ scale: 0 , opacity:0 }}
+        animate={{  scale: 1 , opacity:1 }}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
         transition={{
           type: "spring",
           stiffness: 300,
           damping: 60,
         }}
         >
-          <div className='border-4 rounded-lg bg-white'>
-            <Image className='rounded-lg' src={Tesla} alt="tesla" width={200} height={200} />
+          <div className='justify-center items-center flex flex-col'>
+            <div className='border-4 rounded-lg bg-white'>
+              <Image className='rounded-lg' src={Tesla} alt="tesla" width={200} height={200} />
+            </div>
+            <p className={'text-center py-10  text-3xl '+satisfy.className}>
+            “I do not regret that others have stolen my ideas, rather than why they haven't their own.”
+            </p>
           </div>
         </motion.div>
-      <p className='text-center py-10 underline text-xl'>
-      “I do not regret that others have stolen my ideas, rather than why they haven't their own.”
-      </p>
       </div>
-        <div>
-          <h2 className={'text-2xl p-8 underline '+oxygen.className}>Synopsis</h2>
-          <p  className='p-5 '>
-          Inventor Nikola Tesla was born in July of 1856, in what is now Croatia. He came to the United States in 1884 and briefly worked with Thomas Edison before the two parted ways. He sold several patent rights, including those to his alternating-current machinery, to George Westinghouse. His 1891 invention, the "Tesla coil," is still used in radio technology today. Tesla died in New York City on January 7, 1943.
-          </p>
-          <h2 className={'text-2xl p-8 underline '+oxygen.className} >Early Life</h2>
-          <p className='p-5'>
-          Nikola Tesla was born on July 10, 1856, in what is now Smiljan, Croatia. Tesla's interest in electrical invention was spurred by his mother, Djuka Mandic, who invented small household appliances in her spare time while her son was growing up. Tesla's father, Milutin Tesla, was a priest and a writer, and he pushed for his son to join the priesthood. But Nikola's interests lay squarely in the sciences. After studying at the Realschule, Karlstadt (later renamed the Johann-Rudolph-Glauber Realschule Karlstadt); the Polytechnic Institute in Graz, Austria; and the University of Prague during the 1870s, Tesla moved to Budapest, where for a time he worked at the Central Telephone Exchange. It was while in Budapest that the idea for the induction motor first came to Tesla, but after several years of trying to gain interest in his invention, at age 28 Tesla decided to leave Europe for America.
-          </p>
+        <div className='flex flex-col gap-5 w-full'>
+          {
+            content.map((item,index) => (
+              <div className='grid grid-cols-12 w-full '>
+                <motion.div
+                  initial={{  scale:0.8, opacity:0.5}}
+                  whileInView={{  scale: 1 , opacity:1 }}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.8 }}
+                  transition={{
+                    duration : 1,
+                    type: "spring",
+                    stiffness: 300,
+                    damping: 60,
+                  }
+                  }
+                  className='flex justify-center items-center w-full col-span-12 md:col-span-4'
+                  >
+                      <Image src={item.image} alt="tesla" className='w-[200px] h-[200px]' width={200} height={200} />
+                  </motion.div>
+                  <div className='flex flex-col justify-center items-center col-span-12 md:col-span-8'>
+                    <h2 className='text-lg p-8'>{item.heading}</h2>
+                    <p className='p-5 text-sm'>{item.details}</p>
+                  </div>
+              </div>
+            ))
+          }
         </div>
-        <h2 className={'text-2xl p-8 underline '+oxygen.className}>Famed Inventor</h2>
-        <p className='p-5'>
-          In 1884 Tesla arrived the United States with little more than the clothes on his back and a letter of introduction to famed inventor and business mogul Thomas Edison, whose DC-based electrical works were fast becoming the standard in the country. Edison hired Tesla, and the two men were soon working tirelessly alongside each other, making improvements to Edison's inventions. However, several months later, the two parted ways due to a conflicting business-scientific relationship, attributed by historians to their incredibly different personalities: While Edison was a power figure who focused on marketing and financial success, Tesla was commercially out-of-tune and somewhat vulnerable. After parting ways with Edison, in 1885 Tesla received funding for the Tesla Electric Light Company and was tasked by his investors to develop improved arc lighting. After successfully doing so, however, Tesla was forced out of the venture and for a time had to work as a manual laborer in order to survive. His luck changed in 1887, when he was able to find interest in his AC electrical system and funding for his new Tesla Electric Company. Setting straight to work, by the end of the year, Tesla had successfully filed several patents for AC-based inventions. Tesla's AC system eventually caught the attention of American engineer and business man George Westinghouse, who was seeking a solution to supplying the nation with long-distance power. Convinced that Tesla's inventions would help him achieve this, in 1888 he purchased his patents for $60,000 in cash and stock in the Westinghouse Corporation. As interest in an alternating-current system grew, Tesla and Westinghouse were put in direct competition with Thomas Edison, who was intent on selling his direct-current system to the nation. A negative-press campaign was soon waged by Edison, in an attempt to undermine interest in AC power. Tesla, for his part, continued in his work and would patent several more inventions during this period, including the "Tesla coil," which laid the foundation for wireless technologies and is still used in radio technology today. Unfortunately for Thomas Edison, the Westinghouse Corporation was chosen to supply the lighting at the 1893 World's Columbian Exposition in Chicago, and Tesla conducted demonstrations of his AC system there. Two years later, in 1895, Tesla designed what was among the first AC hydroelectric power plants in the United States, at Niagara Falls. The following year, it was used to power the city of Buffalo, New York, a feat that was highly publicized throughout the world. With its repeat successes and favorable press, the alternating-current system would quickly become the preeminent power system of the 20th century, and it has remained the worldwide standard ever since. In addition to his AC system and coil, throughout his career, Tesla discovered, designed and developed ideas for a number of other important inventions—most of which were officially patented by other inventors—including dynamos (electrical generators similar to batteries) and the induction motor. He was also a pioneer in the discovery of radar technology, X-ray technology, remote control and the rotating magnetic field—the basis of most AC machinery.
-        </p>
-        <h2  className={'text-2xl p-8 underline '+oxygen.className}>The Fall from Grace</h2>
-        <p className='p-5'>
-        Having become obsessed with the wireless transmission of energy, around 1900 Nikola set to work on his boldest project yet: to build a global, wireless communication system—to be transmitted through a large electrical tower—for sharing information and providing free electricity throughout the world. With funding from a group of investors that included financial giant J. P. Morgan, in 1901 Tesla began work on the project in earnest, designing and building a lab with a power plant and a massive transmission tower on a site on Long Island, New York, that became known as Wardenclyffe. However, when doubts arose among his investors about the plausibility of Tesla's system and his rival, Guglielmo Marconi—with the financial support of Andrew Carnegie and Thomas Edison—continued to make great advances with his own radio technologies, Tesla had no choice but to abandon the project. The Wardenclyffe staff was laid off in 1906 and by 1915 the site had fallen into foreclosure. Two years later Tesla declared bankruptcy and the tower was dismantled and sold for scrap to help pay the debts he had accrued.
-        </p>
-        <h2 className={'text-2xl p-8 underline '+oxygen.className}>Death and Legacy</h2>
-        <p className='p-5'>
-          After suffering a nervous breakdown, Tesla eventually returned to work, primarily as a consultant. But as time went on, his ideas became progressively more outlandish and impractical. He also grew increasingly eccentric, devoting much of his time to the care of wild pigeons in New York City's parks. He even drew the attention of the FBI with his talk of building a powerful "death beam," which had received some interest from the Soviet Union during World World II. Poor and reclusive, Nikola Tesla died on January 7, 1943, at the age of 86, in New York City, where he had lived for nearly 60 years. But the legacy of the work he left behind him lives on to this day.
-        </p>
-        <motion.div className={'text-4xl font-thin   font-sans m-10 p-1 bg-slate-400 border rounded-lg text-center'+abeezee.className}
+        <motion.div className={'text-4xl font-thin text-gray-700  font-sans m-10 p-1 bg-slate-400 border rounded-lg text-center '+oxygen.className}
         
         variants={container}
         initial="hidden"
@@ -174,8 +219,17 @@ export default function Home() {
               <ScrollArea className='h-[600px] rounded-md border border-slate-950'>
                 <div key={detail.heading} className='flex flex-col  py-10 items-center justify-center w-[300px]'>
                   <motion.div
+                  initial={{  scale:0.8, opacity:0.5}}
+                  whileInView={{  scale: 1 , opacity:1 }}
                   whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
+                  whileTap={{ scale: 0.8 }}
+                  transition={{
+                    duration : 1,
+                    type: "spring",
+                    stiffness: 300,
+                    damping: 60,
+                  }
+                  }
                   className='flex flex-col items-center justify-center'
                   >
                     <Image src={detail.image} alt="tesla" width={200} height={200} />
