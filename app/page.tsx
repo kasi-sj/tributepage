@@ -194,7 +194,7 @@ export default function Home() {
             ))
           }
         </div>
-        <motion.div className={'text-4xl font-thin text-gray-700  font-sans m-10 p-1 bg-slate-400 border rounded-lg text-center '+oxygen.className}
+        <motion.div className={'md:text-4xl font-thin text-gray-700  font-sans m-10 p-1 bg-slate-400 border rounded-lg text-center '+oxygen.className}
         
         variants={container}
         initial="hidden"
